@@ -72,7 +72,7 @@ const projects = [
   },
   {
     title: 'RuralPress',
-    description: 'Sn online platform for local newspapers, featuring a custom microsite builder. Built full-stack, it empowers local media to create their own digital presence with ease.',
+    description: 'An online platform for local newspapers, featuring a custom microsite builder. Built full-stack, it empowers local media to create their own digital presence with ease.',
     technologies: ['Django', 'Wagtail', 'Python'],
     image: 'ruralpress.webp',
     category: 'Web'

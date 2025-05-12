@@ -6,13 +6,19 @@ const testimonials = [
     quote: "Jerico is one of the most reliable and skilled developers I've worked with. He consistently delivers clean, scalable code and approaches every challenge with focus and professionalism. Calm under pressure and highly collaborative, Jerico is a valuable asset to any team.",
     name: "Ken Harvey Oresca",
     position: "Software Developer at Taters",
-    image: "/ken.jfif"
+    image: "ken.jfif"
   },
   {
     quote: "I had the pleasure of working with Jerico with ERP projects, and I was impressed by his technical skills, reliability, and collaborative attitude. He's indeed a valuable asset to the team.",
     name: "Jelyn Guibong",
     position: "Product Manager at AWB",
-    image: "/jelyn.jfif"
+    image: "jelyn.jfif"
+  },
+  {
+    quote: "Good team player, can start with minimal supervision. He know what he's doing.",
+    name: "Charles Kurt",
+    position: "Mobile App Developer at AWB",
+    image: "charles.jfif"
   },
 ];
 

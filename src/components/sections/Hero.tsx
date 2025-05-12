@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
                 View My Work
               </a>
               <a 
-                href="/resume.pdf"
+                href="resume.pdf"
                 download="Jerico-Villaraza-Resume.pdf"
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:border-pink-500 dark:hover:border-pink-400 rounded-md transition-colors duration-300"
               >
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl animate-float">
               <img 
-                src="/me.jpg" 
+                src="me.jpg" 
                 alt="Jerico Villaraza" 
                 className="w-full h-full object-cover"
               />

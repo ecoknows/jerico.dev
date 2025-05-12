@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#" className="flex items-center space-x-2 text-xl font-bold">
-            <img src="logo.png" alt="Logo"/>
+            <img src="logo.svg" alt="Logo"/>
             <span>Jerico V.</span>
           </a>
           

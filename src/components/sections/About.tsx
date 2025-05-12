@@ -42,11 +42,11 @@ const About: React.FC = () => {
           <div className="h-1 w-20 bg-pink-500 dark:bg-pink-400 mx-auto"></div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="w-full sm:w-1/2 lg:w-1/4 bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
+              className="bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
             >
               <div className="text-3xl mb-4">{service.icon}</div>
               <h4 className="text-xl font-semibold mb-2">{service.title}</h4>
