@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Jerico is one of the most reliable and skilled developers I've worked with. He consistently delivers clean, scalable code and approaches every challenge with focus and professionalism. Calm under pressure and highly collaborative, Jerico is a valuable asset to any team.",
-    name: "Ken Harvey Oresca",
-    position: "Software Developer at Taters",
-    image: "ken.jfif"
+    quote: "Worked with Eco on multiple projects. I can say he's an excellent and hardworking developer! 👍",
+    name: "Eusebio Yu",
+    position: "Senior Solutions Engineer at AWB",
+    image: "sebs.jpeg"
   },
   {
     quote: "I had the pleasure of working with Jerico with ERP projects, and I was impressed by his technical skills, reliability, and collaborative attitude. He's indeed a valuable asset to the team.",
@@ -19,6 +19,12 @@ const testimonials = [
     name: "Charles Kurt",
     position: "Mobile App Developer at AWB",
     image: "charles.jfif"
+  },
+  {
+    quote: "Jerico is one of the most reliable and skilled developers I've worked with. He consistently delivers clean, scalable code and approaches every challenge with focus and professionalism. Calm under pressure and highly collaborative, Jerico is a valuable asset to any team.",
+    name: "Ken Harvey Oresca",
+    position: "Software Developer at Taters",
+    image: "ken.jfif"
   },
 ];
 

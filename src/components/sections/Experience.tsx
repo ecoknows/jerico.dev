@@ -3,7 +3,7 @@ import React from 'react';
 const experiences = [
   {
     company: 'Philippine National Bank',
-    position: 'iOS Developer',
+    position: 'iOS Developer II',
     period: 'June 2024 - Present',
     description: 'Contributed to the development and enhancement of key features in a secure mobile banking app, including credit card locking, QR-based transfers, and payment modules. Improved app performance, delivered bug fixes, and supported pre-production builds through Apple Connect. Collaborated with cross-functional teams to ensure high-quality, user-friendly experiences, strengthened app security with SSL Pinning, and participated in technical interviews for iOS developer roles.',
     logo: 'pnb-logo.png'
