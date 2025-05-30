@@ -3,33 +3,38 @@ import React from 'react';
 const experiences = [
   {
     company: 'Philippine National Bank',
-    position: 'iOS Developer II',
+    position: 'iOS Developer',
     period: 'June 2024 - Present',
-    description: 'Contributed to the development and enhancement of key features in a secure mobile banking app, including credit card locking, QR-based transfers, and payment modules. Improved app performance, delivered bug fixes, and supported pre-production builds through Apple Connect. Collaborated with cross-functional teams to ensure high-quality, user-friendly experiences, strengthened app security with SSL Pinning, and participated in technical interviews for iOS developer roles.',
+    description:
+      'Developed digital banking features (Card Control, Transfer Device via QR, Pay This Card, Mobile Account Application), improved app performance, fixed critical bugs, and strengthened app security.',
     logo: 'pnb-logo.png'
   },
   {
     company: 'Achieve Without Borders, Inc.',
     position: 'Full Stack Developer',
     period: 'May 2023 - May 2024',
-    description: 'Developed and customized ERP and accounting solutions using Odoo (Python) for enterprise clients, improving performance with background processing and queuing systems. Managed deployments on GCP using Docker and enhanced system scalability and maintainability. Built a cross-platform e-commerce app using Flutter and Firebase, implementing third-party authentication, dynamic links, and robust state management for a smooth user experience.',
+    description:
+      'Customized ERP systems, boosted performance with background processing and queues, managed cloud deployments, and developed e-commerce features (Vouchers, Deals, Third-party Authentication, Dashboard Revamp and Dynamic Links Implementation) for both iOS and Android.',
     logo: 'awb-logo.png'
   },
   {
     company: 'Taters Enterprises, Inc.',
     position: 'Software Developer',
     period: 'Feb 2022 - May 2023',
-    description: 'Led the migration to a React-based single-page app, improving performance and user experience. Built key systems like PopClub (deals & vouchers) and Catering from scratch. Enhanced the SnackShop online ordering platform and admin tools. Also mentored interns and contributed to overall product growth.',
+    description:
+      'Modernized the frontend architecture from Multi-Page Applications to Single Page Applications, built PopClub and Catering modules from scratch, and enhanced SnackShop and internal admin tools.',
     logo: 'taters-logo.jfif'
   },
   {
     company: 'RightValley',
     position: 'Software Developer Intern',
     period: 'Feb 2021 - June 2021',
-    description: 'Built and maintained Django + Wagtail platforms like RuralPress and iJM. Provided Flutter bug fixes for Needr. Gained startup experience working closely with leadership.',
+    description:
+      'Built a custom microsite builder for a local newspaper and resolved critical bugs in a Flutter-based e-commerce mobile app.',
     logo: 'rightvalley.png'
-  },
+  }
 ];
+
 
 const Experience: React.FC = () => {
   return (
