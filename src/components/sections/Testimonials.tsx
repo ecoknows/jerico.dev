@@ -21,6 +21,12 @@ const testimonials = [
     image: "charles.jfif"
   },
   {
+    quote: "Having worked with Eco on a major project, I can vouch on his skills and reliability as a developer. He was always delivering high-quality codes, and never hesitated to help others troubleshoot, improve code structures, and brainstorm solutions.",
+    name: "Matthew Dalagan",
+    position: "Full Stack Developer at AWB",
+    image: "matt.jfif"
+  },
+  {
     quote: "Jerico is one of the most reliable and skilled developers I've worked with. He consistently delivers clean, scalable code and approaches every challenge with focus and professionalism. Calm under pressure and highly collaborative, Jerico is a valuable asset to any team.",
     name: "Ken Harvey Oresca",
     position: "Software Developer at Taters",
