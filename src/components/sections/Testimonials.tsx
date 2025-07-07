@@ -32,6 +32,12 @@ const testimonials = [
     position: "Software Developer at Taters",
     image: "ken.jfif"
   },
+  {
+    quote: "Been with Eco on projects and he showed his software knowledge well while ensuring quality on his code.",
+    name: "Keen Renzo Ballon",
+    position: "Full Stack Developer at AWB",
+    image: "keen.jpeg"
+  },
 ];
 
 const Testimonials: React.FC = () => {
