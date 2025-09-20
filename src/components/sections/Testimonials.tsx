@@ -38,6 +38,12 @@ const testimonials = [
     position: "Software Developer",
     image: "ken.jfif"
   },
+  {
+    quote: "I had the pleasure of working with Jerico on ERP projects—he’s a strong team player and a great collaborator.",
+    name: "Girija Subramaniyan",
+    position: "Odoo Developer",
+    image: "girija.jpeg"
+  },
 ];
 
 const Testimonials: React.FC = () => {
