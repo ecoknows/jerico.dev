@@ -11,7 +11,7 @@ const testimonials = [
   {
     quote: "Good team player, can start with minimal supervision. He know what he's doing.",
     name: "Charles Kurt",
-    position: "Flutter Developer",
+    position: "Lead Flutter Developer",
     image: "charles.jfif"
   },
   {
