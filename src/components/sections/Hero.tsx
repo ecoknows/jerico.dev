@@ -20,13 +20,13 @@ const Hero: React.FC = () => {
               >
                 View My Work
               </a>
-              {/* <a 
+              <a 
                 href="resume.pdf"
                 download="Jerico-Villaraza-Resume.pdf"
                 className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:border-pink-500 dark:hover:border-pink-400 rounded-md transition-colors duration-300"
               >
                 Download Resume
-              </a> */}
+              </a>
             </div>
           </div>
           
