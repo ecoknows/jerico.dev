@@ -1,24 +1,26 @@
 import { ThemeProvider } from './components/theme/ThemeContext';
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Experience from './components/sections/Experience';
+import ReleaseShelf from './components/sections/ReleaseShelf';
 import Projects from './components/sections/Projects';
+import Capabilities from './components/sections/Capabilities';
+import Experience from './components/sections/Experience';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
-import Footer from './components/layout/Footer';
 
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <div className="min-h-screen overflow-x-hidden bg-stone-50 text-stone-900 transition-colors duration-300 motion-reduce:transition-none dark:bg-[#121311] dark:text-stone-100">
         <Header />
-        <main>
+        <main id="main-content" tabIndex={-1}>
           <Hero />
-          <About />
-          <Testimonials />
+          <ReleaseShelf />
           <Projects />
+          <Capabilities />
           <Experience />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />

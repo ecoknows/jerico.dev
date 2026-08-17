@@ -1,274 +1,112 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { ArrowUpRight, Github, Play } from 'lucide-react';
+import { archiveCategories, archiveProjects, type ProjectCategory } from '../../data/portfolio';
 
-const projects = [
-  {
-    title: 'My Map Diary',
-    description: "An interactive map diary to pin photos, add titles, and relive your adventures anytime, anywhere.",
-    technologies: ['Swift', 'SwiftUI', 'MapKit', 'SwiftData',],
-    image: 'my-map-diary.jfif',
-    github: 'https://github.com/Eco-Apple/my-map-diary',
-    live: 'https://apps.apple.com/us/app/my-map-diary/id6738887653',
-    category: 'iOS'
-  },
-  {
-    title: 'Piggy',
-    description: "A simple budget tracker to manage income, expenses, and savings without the clutter—perfect for staying organized.",
-    technologies: ['Swift', 'SwiftUI', 'SwiftData'],
-    image: 'piggy.jfif',
-    github: 'https://github.com/Eco-Apple/piggy',
-    live: 'https://apps.apple.com/us/app/piggy-simple-budget-tracker/id6736941981',
-    category: 'iOS'
-  },
-  {
-    title: 'Do it now!',
-    description: 'A minimalist task timer to track work, stay accountable, and build momentum toward your goals.',
-    technologies: ['Swift', 'SwiftUI', 'SwiftData'],
-    image: 'do-it-now.jfif',
-    github: 'https://github.com/Eco-Apple/do-it-now',
-    live: 'https://apps.apple.com/us/app/do-it-now-get-things-done/id6741190163',
-    category: 'iOS'
-  },
-  {
-    title: 'KUBO: Smart Recipe Planner',
-    description: 'A smart recipe app with image detection, suggest meals, and let you plan your week with a scheduler.',
-    technologies: ['Flutter', 'Python', 'ReactJS'],
-    image: 'kubo.png',
-    github: 'https://github.com/KUBO-TEAM',
-    demo: "https://youtu.be/kTfk86Ld7hY",
-    category: 'Android'
-  },
-  {
-    title: 'Document Scanner',
-    description: 'A fast and easy document scanner to capture, crop, and organize your files—right from your phone.',
-    technologies: ['Flutter', 'Firebase'],
-    image: 'document-scanner.jpg',
-    github: 'https://github.com/ecoknows/Document-Scanner',
-    category: 'Android'
-  },
-  {
-    title: 'Taters Website Revamp',
-    description: 'An eCommerce app revamped from Vanilla JS to React, offering a faster, smoother shopping experience with modern features and seamless navigation.',
-    technologies: ['ReactJS', 'CodeIgniter', 'PHP'],
-    image: 'taters-web.png',
-    live: 'https://ilovetaters.com',
-    class: 'object-top',
-    category: 'Web'
-  },
-  {
-    title: 'BunBuy Marketplace',
-    description: 'An eCommerce marketplace where I contributed by implementing vouchers and fixing UI bugs across multiple modules to enhance the shopping experience.',
-    technologies: ['Flutter', 'Firebase'],
-    image: 'bunbuy.png',
-    category: 'Android'
-  },
-  {
-    title: 'La Cucina',
-    description: 'An interactive recipe app for food lovers, featuring Filipino dishes with a user-friendly interface. Explore, cook, and enjoy authentic recipes in a more engaging and dynamic way.',
-    technologies: ['ReactNative', 'MongoDB', 'ExpressJS'],
-    image: 'lacucina.png',
-    github: 'https://github.com/ecoknows/La-Cucina',
-    category: 'Android'
-  },
-  {
-    title: 'RuralPress',
-    description: 'An online platform for local newspapers, featuring a custom microsite builder. Built full-stack, it empowers local media to create their own digital presence with ease.',
-    technologies: ['Django', 'Wagtail', 'Python'],
-    image: 'ruralpress.webp',
-    category: 'Web'
-  },
-  {
-    title: 'Needr',
-    description: 'A mobile platform where consumers and businesses can search, post, promote, and communicate needs and offers. I contributed by fixing bugs to enhance the app’s performance and usability.',
-    technologies: ['Flutter', 'Firebase'],
-    image: 'needr.jfif',
-    category: 'Android'
-  },
-  {
-    title: 'ARPilipinas',
-    description: 'An augmented reality app showcasing the culture of the Philippines during the Spanish era. Developed as a freelance project during my college years, it offers an immersive historical experience.',
-    technologies: ['Unity', 'Vuforia'],
-    image: 'ar-pilipinas.png',
-    github: 'https://github.com/ecoknows/Augmented-Reality-ARPilipinas',
-    demo: 'https://youtu.be/48FuTi9PO8k',
-    category: 'Android'
-  },
-  {
-    title: 'Performance Evaluation System',
-    description: 'A full-stack performance evaluation website designed to streamline the assessment process. Built as a freelance project during my college years, it enables efficient feedback collection and analysis.',
-    technologies: ['Wagtail', 'Django', 'Python', 'Docker', 'Heroku'],
-    image: 'pes.png',
-    github: 'https://github.com/ecoknows/Performance-Management-System',
-    category: 'Web'
-  },
-  {
-    title: 'Pure Angel Coffee Website',
-    description: 'A full-stack networking platform with a hierarchical structure, where a parent node connects to two child nodes. Developed as a freelance project during my college years, it manages and tracks relationships within a network.',
-    technologies: ['AngularJS', 'MongoDB', 'ExpressJS', 'Google Cloud Platform', 'Nginx'],
-    image: 'pac.png',
-    github: 'https://github.com/ecoknows/Pure-Angel-Coffe',
-    demo: 'https://youtu.be/EEkvmlxRpeo',
-    category: 'Web'
-  },
-  {
-    title: 'Workshop',
-    description: 'Workshop is a full-stack platform for job seekers and freelancers, where employers can assign tasks, track progress, and workers can submit and complete jobs efficiently.',
-    technologies: ['ReactNative', 'MongoDB', 'ExpressJS'],
-    image: 'workshop.png',
-    github: 'https://github.com/ecoknows/Workshop',
-    class: 'object-top',
-    category: 'Android'
-  },
-  {
-    title: 'EVE',
-    description: 'An ordering system with built-in voice recognition, designed to simplify the ordering process through hands-free interaction.',
-    technologies: ['C#'],
-    image: 'eve.jpg',
-    github: 'https://github.com/ecoknows/EVE-Ordering-System',
-    category: 'Window'
-  },
-  {
-    title: 'TUP Scheduling System',
-    description: 'TUP Scheduling System is a drag-and-drop scheduling platform for managing teacher timetables. Once schedules are set by instructors, they’re automatically received by student accounts for seamless coordination.',
-    technologies: ['Wagtail', 'Django', 'Python', 'Docker', 'Heroku'],
-    image: 'tup-faculty.png',
-    github: 'https://github.com/ecoknows/TUP-Scheduling',
-    category: 'Web'
-  },
-  {
-    title: 'Celene',
-    description: 'Celene is a full-stack eCommerce clothing app designed for a smooth shopping experience, complete with product browsing, cart management, and secure checkout.',
-    technologies: ['ReactJS', 'MongoDB', 'ExpressJS'],
-    image: 'celine.png',
-    github: 'https://github.com/ecoknows/Celene',
-    category: 'Web'
-  },
-  {
-    title: 'Algo Filipino (Presentation Demo)',
-    description: 'Algo Filipino is a messaging app demo built with React Native, created as a presentation sample during my talk on React Native development. I used it to demonstrate core concepts and real-time features.',
-    technologies: ['React Native', 'Firebase'],
-    image: 'af.png',
-    github: 'https://github.com/ecoknows/Algo-GC',
-    category: 'Android'
-  },
-  {
-    title: 'Hospital Line',
-    description: 'A full-stack platform with web and mobile support that helps users locate the nearest hospital using Google Maps features—like Uber, but for emergencies.',
-    technologies: ['ReactJS', 'ExpressJS', 'MongoDB', 'React Native', 'Google Maps API'],
-    image: 'hospital.png',
-    github: 'https://github.com/ecoknows/Hospital-Line',
-    category: 'Web'
-  },
-];
+type Filter = 'All' | ProjectCategory;
 
-const categories = ['All', 'iOS', 'Android', 'Web', 'Window'];
+const filterLabels: Record<Filter, string> = {
+  All: 'All work',
+  Mobile: 'Mobile',
+  Web: 'Web',
+  Other: 'Other',
+};
 
-const Projects: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
+const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<Filter>('All');
+  const visibleProjects = useMemo(
+    () => archiveProjects.filter((project) => activeFilter === 'All' || project.category === activeFilter),
+    [activeFilter],
+  );
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">My Work</h2>
-          <div className="h-1 w-20 bg-pink-500 dark:bg-pink-400 mx-auto"></div>
-        </div>
-        
-        {/* Category filters */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex flex-wrap justify-center gap-2">
-            {categories.map(category => (
+    <section id="projects" className="section-shell" aria-labelledby="projects-title">
+      <div className="container">
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <p className="eyebrow">Beyond the shelf</p>
+            <h2 id="projects-title" className="section-heading text-balance">A broader record of shipped work.</h2>
+            <p className="section-copy">Mobile, web, and product systems built across teams, freelance work, and independent experiments.</p>
+          </div>
+          <div className="flex flex-wrap gap-2" aria-label="Filter project archive">
+            {(['All', ...archiveCategories] as Filter[]).map((filter) => (
               <button
-                key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeCategory === category
-                    ? 'bg-pink-500 dark:bg-pink-400 text-white'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                key={filter}
+                type="button"
+                aria-pressed={activeFilter === filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                  activeFilter === filter
+                    ? 'bg-stone-950 text-white dark:bg-stone-50 dark:text-stone-950'
+                    : 'border border-stone-300 bg-white/50 text-stone-600 hover:border-stone-500 hover:text-stone-950 dark:border-stone-700 dark:bg-stone-900/50 dark:text-stone-300 dark:hover:border-stone-500 dark:hover:text-stone-50'
                 }`}
-                onClick={() => setActiveCategory(category)}
               >
-                {category}
+                {filterLabels[filter]}
               </button>
             ))}
           </div>
         </div>
-        
-        {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div 
-              key={index}
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="h-96 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className={`${project.class} w-full h-full object-cover transition-transform duration-500 hover:scale-110`}
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {visibleProjects.map((project) => (
+            <article key={project.id} className="group flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-stone-300 hover:shadow-[0_18px_42px_rgba(31,31,25,0.09)] dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700">
+              <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-stone-100 p-4 dark:bg-stone-950">
+                <img
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  width={project.image.width}
+                  height={project.image.height}
+                  loading="lazy"
+                  decoding="async"
+                  className={`h-full w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.03] motion-reduce:transition-none ${project.image.className ?? ''}`}
+                  style={{ objectPosition: project.image.objectPosition }}
                 />
+                <span className="absolute left-5 top-5 rounded-full bg-white/90 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-stone-700 shadow-sm backdrop-blur dark:bg-stone-900/90 dark:text-stone-200">
+                  {project.platform}
+                </span>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.technologies.map((tech, i) => (
-                    <span 
-                      key={i} 
-                      className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded-md text-xs font-medium"
-                    >
-                      {tech}
+
+              <div className="flex flex-1 flex-col p-5">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">
+                  {project.role && <span>{project.role}</span>}
+                  {project.role && project.ownership && <span aria-hidden="true">•</span>}
+                  {project.ownership && <span>{project.ownership}</span>}
+                </div>
+                <h3 className="mt-3 text-xl text-stone-950 dark:text-stone-50">{project.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-600 dark:text-stone-300">{project.summary}</p>
+
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {project.stack.slice(0, 4).map((technology) => (
+                    <span key={technology} className="rounded-md bg-stone-100 px-2 py-1 text-[0.68rem] font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">
+                      {technology}
                     </span>
                   ))}
+                  {project.stack.length > 4 && <span className="rounded-md bg-stone-100 px-2 py-1 text-[0.68rem] font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">+{project.stack.length - 4}</span>}
                 </div>
-                
-                <div className="flex space-x-4">
-                  {
-                    project.github ? 
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
-                  >
-                    <Github size={18} className="mr-1" />
-                    <span>Code</span>
-                  </a> : null
-                  }
-                  { project.live ? 
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
-                    >
-                      <ExternalLink size={18} className="mr-1" />
-                      <span>Live</span>
-                    </a> : project.demo ? <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
-                    >
-                      <ExternalLink size={18} className="mr-1" />
-                      <span>Demo</span>
-                    </a> : null
-                  }
+
+                <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
+                  {project.links.code && <ProjectLink href={project.links.code} label="Code" icon={Github} />}
+                  {project.links.website && <ProjectLink href={project.links.website} label="Visit" icon={ArrowUpRight} />}
+                  {project.links.demo && <ProjectLink href={project.links.demo} label="Demo" icon={Play} />}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
 };
+
+type ProjectLinkProps = {
+  href: string;
+  label: string;
+  icon: typeof Github;
+};
+
+const ProjectLink = ({ href, label, icon: Icon }: ProjectLinkProps) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-stone-700 transition hover:text-indigo-600 dark:text-stone-200 dark:hover:text-indigo-300">
+    <Icon size={15} aria-hidden="true" /> {label}
+  </a>
+);
 
 export default Projects;
