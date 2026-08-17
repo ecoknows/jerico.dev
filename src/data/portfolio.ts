@@ -1,6 +1,6 @@
 export type ProjectCategory = 'Mobile' | 'Web' | 'Other';
 
-export type ProjectPlatform = 'iOS' | 'Android' | 'Web' | 'Desktop';
+export type ProjectPlatform = 'iOS' | 'Android' | 'iOS & Android' | 'Web' | 'Desktop';
 
 export interface ImageAsset {
   src: string;
@@ -14,6 +14,7 @@ export interface ImageAsset {
 export interface ProjectLinks {
   code?: string;
   appStore?: string;
+  googlePlay?: string;
   website?: string;
   demo?: string;
 }
@@ -128,6 +129,29 @@ export const projects: readonly Project[] = [
     },
     featured: true,
     role: 'iOS Developer',
+  },
+  {
+    id: 'atlas-transport',
+    title: 'Atlas Transport',
+    platform: 'iOS & Android',
+    category: 'Mobile',
+    summary:
+      'A cross-platform logistics app for shipment tracking, delivery operations, documented proof, and warehouse visibility.',
+    description:
+      'A mobile product that helps Atlas Transport coordinate shipment milestones, delivery workflows, and warehouse operations.',
+    stack: ['React Native', 'Firebase'],
+    image: {
+      src: 'atlas-transport.png',
+      alt: 'Atlas Transport app screens for login, shipment details, and facility operations',
+      width: 1200,
+      height: 777,
+    },
+    links: {
+      website: 'https://atlastransport.ph/',
+      googlePlay: 'https://play.google.com/store/apps/details?id=com.atlas.atlastracking&hl=en',
+      appStore: 'https://apps.apple.com/ph/app/atlas-transport/id6761184755',
+    },
+    featured: false,
   },
   {
     id: 'kubo-smart-recipe-planner',

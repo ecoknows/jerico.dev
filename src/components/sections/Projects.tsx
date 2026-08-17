@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { ArrowUpRight, Github, Play } from 'lucide-react';
+import { ArrowUpRight, Github, Play, type LucideIcon } from 'lucide-react';
 import { archiveCategories, archiveProjects, type ProjectCategory } from '../../data/portfolio';
 
 type Filter = 'All' | ProjectCategory;
@@ -86,6 +86,8 @@ const Projects = () => {
                 <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
                   {project.links.code && <ProjectLink href={project.links.code} label="Code" icon={Github} />}
                   {project.links.website && <ProjectLink href={project.links.website} label="Visit" icon={ArrowUpRight} />}
+                  {project.links.appStore && <ProjectLink href={project.links.appStore} label="App Store" icon={ArrowUpRight} />}
+                  {project.links.googlePlay && <ProjectLink href={project.links.googlePlay} label="Google Play" icon={Play} />}
                   {project.links.demo && <ProjectLink href={project.links.demo} label="Demo" icon={Play} />}
                 </div>
               </div>
@@ -100,7 +102,7 @@ const Projects = () => {
 type ProjectLinkProps = {
   href: string;
   label: string;
-  icon: typeof Github;
+  icon: LucideIcon;
 };
 
 const ProjectLink = ({ href, label, icon: Icon }: ProjectLinkProps) => (
