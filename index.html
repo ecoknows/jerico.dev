@@ -4,8 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jerico V.</title>
-    <meta name="description" content="A non-typical software engineer.">
+    <title>Jerico Villaraza — iOS Engineer &amp; Product Builder</title>
+    <meta name="description" content="Jerico Villaraza is an iOS engineer and product builder creating focused, reliable mobile experiences." />
+    <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jerico Villaraza — iOS Engineer &amp; Product Builder" />
+    <meta property="og:description" content="Focused, reliable mobile experiences—from product idea to shipped release." />
+    <meta property="og:url" content="https://www.jerico.dev" />
+    <meta property="og:image" content="https://www.jerico.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jerico Villaraza, iOS Engineer &amp; Product Builder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jerico Villaraza — iOS Engineer &amp; Product Builder" />
+    <meta name="twitter:description" content="Focused, reliable mobile experiences—from product idea to shipped release." />
+    <meta name="twitter:image" content="https://www.jerico.dev/og.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,11 +27,28 @@
     <script type="application/ld+json">
       {
         "@context": "https://www.schema.org",
-        "@type": "Organization",
+        "@type": "Person",
         "name": "Jerico Villaraza",
         "url": "https://www.jerico.dev",
-        "logo": "https://www.jerico.dev/logo.svg"
+        "image": "https://www.jerico.dev/me.jpg",
+        "jobTitle": "iOS Engineer & Product Builder",
+        "sameAs": [
+          "https://github.com/ecoknows",
+          "https://www.linkedin.com/in/jerico-villaraza-95a195231/",
+          "https://x.com/ecovillaraza32"
+        ]
       }
+    </script>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', savedTheme ? savedTheme === 'dark' : prefersDark);
+        } catch {
+          // Keep the default light palette when storage or media preferences are unavailable.
+        }
+      })();
     </script>
 
   </head>

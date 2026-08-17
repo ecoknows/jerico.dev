@@ -1,59 +1,28 @@
-import React from 'react';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-gray-100 dark:bg-gray-800 py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              © {currentYear} Jerico Villaraza. All rights reserved.
-            </p>
-          </div>
-          
-          <div className="flex space-x-6">
-            <a 
-              href="https://github.com/ecoknows" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400 transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/jerico-villaraza-95a195231/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a 
-              href="https://x.com/ecovillaraza32" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-            </a>
-            <a 
-              href="mailto:eco.villaraza@gmail.com" 
-              className="text-gray-500 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400 transition-colors"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
-          </div>
-        </div>
+const socialLinks = [
+  { label: 'GitHub', href: 'https://github.com/ecoknows', icon: Github },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jerico-villaraza-95a195231/', icon: Linkedin },
+  { label: 'X', href: 'https://x.com/ecovillaraza32', icon: Twitter },
+  { label: 'Email', href: 'mailto:eco.villaraza@gmail.com', icon: Mail },
+];
+
+const Footer = () => (
+  <footer className="border-t border-stone-200 py-9 dark:border-stone-800">
+    <div className="container flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400">
+        <div className="dot-mark h-7 w-7 rounded-lg p-1" aria-hidden="true"><span /><span /><span /><span /></div>
+        <p>© {new Date().getFullYear()} Jerico Villaraza</p>
       </div>
-    </footer>
-  );
-};
+      <div className="flex items-center gap-2">
+        {socialLinks.map(({ label, href, icon: Icon }) => (
+          <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} aria-label={label} className="rounded-full p-2.5 text-stone-600 transition hover:bg-stone-200 hover:text-indigo-600 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-indigo-300">
+            <Icon size={18} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

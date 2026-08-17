@@ -1,50 +1,57 @@
-import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDownRight, Download, MapPin } from 'lucide-react';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in leading-tight">
-              <span className="text-gray-900 dark:text-white">Empowering your </span>
-              <span className="text-pink-500 dark:text-pink-400">vision</span>
-              <span className="text-gray-900 dark:text-white"> through thoughtful</span>
-              <span className="text-pink-500 dark:text-pink-400"> development</span>
-            </h1>
-            <div className="flex flex-wrap gap-4 animate-fade-in-delayed-extra">
-              <a 
-                href="#projects" 
-                className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-md transition-colors duration-300 shadow-md"
-              >
-                View My Work
-              </a>
-              <a 
-                href="resume.pdf"
-                download="Jerico-Villaraza-Resume.pdf"
-                className="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:border-pink-500 dark:hover:border-pink-400 rounded-md transition-colors duration-300"
-              >
-                Download Resume
-              </a>
-            </div>
+    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 sm:pt-36">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-gradient-to-b from-amber-50 via-stone-50 to-transparent dark:from-stone-900 dark:via-[#121311]" />
+      <div className="container relative grid min-h-[min(46rem,calc(100vh-2rem))] items-center gap-12 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:pb-20">
+        <div className="max-w-2xl">
+          <p className="eyebrow">iOS engineer · product builder</p>
+          <h1 id="hero-title" className="text-balance text-5xl leading-[0.96] text-stone-950 dark:text-stone-50 sm:text-6xl lg:text-7xl">
+            I turn useful ideas into focused, reliable apps.
+          </h1>
+          <p className="mt-7 max-w-xl text-lg leading-8 text-stone-600 dark:text-stone-300 sm:text-xl">
+            I’m Jerico Villaraza—an iOS engineer who cares about the detail between a clear product idea and a release people enjoy using.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#selected-work" className="button-primary">
+              Explore selected releases <ArrowDownRight size={17} aria-hidden="true" />
+            </a>
+            <a href="resume.pdf" download="Jerico-Villaraza-Resume.pdf" className="button-secondary">
+              <Download size={17} aria-hidden="true" /> Download résumé
+            </a>
           </div>
-          
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl animate-float">
-              <img 
-                src="me.jpg" 
-                alt="Jerico Villaraza" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+
+          <p className="mt-8 flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+            <MapPin size={16} aria-hidden="true" /> Manila, Philippines
+          </p>
         </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-          <a href="#about" aria-label="Scroll down">
-            <ArrowDown size={24} className="text-gray-400 dark:text-gray-500" />
-          </a>
+
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="absolute -left-5 top-12 h-24 w-24 rounded-full bg-pink-400/20 blur-2xl" />
+          <div className="absolute -right-5 bottom-8 h-28 w-28 rounded-full bg-indigo-400/20 blur-2xl" />
+          <div className="surface-noise relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-3 shadow-[0_24px_70px_rgba(31,31,25,0.12)] dark:border-stone-700 dark:bg-stone-900 sm:p-4">
+            <div className="absolute left-7 top-7 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-stone-950/75 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+              Building with care
+            </div>
+            <img
+              src="me-hero.jpg"
+              alt="Jerico Villaraza working on a MacBook"
+              width="960"
+              height="960"
+              fetchPriority="high"
+              className="aspect-[4/5] w-full rounded-[1.3rem] object-cover object-[51%_48%]"
+            />
+            <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between rounded-2xl border border-white/40 bg-white/85 p-4 backdrop-blur-md dark:bg-stone-950/80">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">Currently focused on</p>
+                <p className="mt-1 text-base font-bold text-stone-950 dark:text-stone-50">SwiftUI product experiences</p>
+              </div>
+              <div className="dot-mark shrink-0" aria-hidden="true"><span /><span /><span /><span /></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
